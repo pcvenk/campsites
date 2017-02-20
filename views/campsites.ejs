@@ -1,14 +1,23 @@
 <% include layouts/header %>
 
-<h1>Camping Grounds</h1>
+<div class="container">
+    <header>
+        <div class="jumbotron">
+            <h1>Camping Grounds</h1>
+            <h4>Handpicked selection of the most popular camsites worldwide</h4>
+            <a href="/campsites/new"><button class="btn btn-primary btn-md">Add a new site</button></a>
+        </div>
+    </header>
 
-<div>
-    <% campgrounds.forEach(function(campground){ %>
+    <div>
+        <% campgrounds.forEach(function(campground){ %>
         <div>
             <h3><%= campground.name %></h3>
             <img src="<%= campground.image %>" width="600" height="450">
         </div>
-    <% }) %>
+        <% }) %>
+    </div>
 </div>
+
 
 <% include layouts/footer%>
