@@ -27,6 +27,7 @@ app.get('/', function (req, res) {
     res.render('home');
 });
 
+//INDEX - show all campsites
 app.get('/campsites', function (req, res) {
     Campground.find({}, function(err, allCampgrounds){
         if(err){
@@ -39,6 +40,7 @@ app.get('/campsites', function (req, res) {
     });
 });
 
+//CREATE - create a new campground
 app.post('/campsites', function (req, res) {
     //grabbing form data
     var name = req.body.name;
@@ -58,8 +60,14 @@ app.post('/campsites', function (req, res) {
     });
 });
 
+//NEW - display a form for adding new camgrounds
 app.get('/campsites/new', function (req, res) {
     res.render('newcampsite');
+});
+
+//SHOW - info about the particular site
+app.get('/campsites/:id', function(req, res){
+   res.send('Addtional info about the chosen site');
 });
 
 app.listen(3000, function () {
