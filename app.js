@@ -13,34 +13,34 @@ var campgroundSchema = new mongoose.Schema({
 
 var Campground = mongoose.model('Campground', campgroundSchema);
 
-var newCampground = {
-    name: 'Zlatorog Bled',
-    image: 'http://www.photosforclass.com/download/14435096036'
-};
+// var newCampground = {
+//     name: 'Zlatorog Bled',
+//     image: 'http://www.photosforclass.com/download/14435096036'
+// };
+//
+//
+// Campground.create(newCampground, function(err, campground){
+//         if(err){
+//             console.log(err);
+//         } else {
+//             console.log('New Campsite Added');
+//             console.log(campground);
+//         }
+//     }
+// );
 
 
-Campground.create(newCampground, function(err, campground){
-        if(err){
-            console.log(err);
-        } else {
-            console.log('New Campsite Added');
-            console.log(campground);
-        }
-    }
-);
 
-
-
-var campgrounds = [
-    {name: 'Zlatorog Bohinj', image: 'http://www.photosforclass.com/download/14435096036'},
-    {name: 'Camping Sobed', image: 'http://www.photosforclass.com/download/4835814837'},
-    {name: 'Camping Bled', image: 'http://www.photosforclass.com/download/1342367857'},
-    {name: 'Spik', image: 'http://www.photosforclass.com/download/15989950903'},
-    {name: 'Zelena Laguna', image: 'http://www.photosforclass.com/download/1430198323'},
-    {name: 'Zlatorog Bohinj', image: 'http://www.photosforclass.com/download/14435096036'},
-    {name: 'Camping Sobed', image: 'http://www.photosforclass.com/download/4835814837'},
-    {name: 'Camping Bled', image: 'http://www.photosforclass.com/download/1342367857'}
-];
+// var campgrounds = [
+//     {name: 'Zlatorog Bohinj', image: 'http://www.photosforclass.com/download/14435096036'},
+//     {name: 'Camping Sobed', image: 'http://www.photosforclass.com/download/4835814837'},
+//     {name: 'Camping Bled', image: 'http://www.photosforclass.com/download/1342367857'},
+//     {name: 'Spik', image: 'http://www.photosforclass.com/download/15989950903'},
+//     {name: 'Zelena Laguna', image: 'http://www.photosforclass.com/download/1430198323'},
+//     {name: 'Zlatorog Bohinj', image: 'http://www.photosforclass.com/download/14435096036'},
+//     {name: 'Camping Sobed', image: 'http://www.photosforclass.com/download/4835814837'},
+//     {name: 'Camping Bled', image: 'http://www.photosforclass.com/download/1342367857'}
+// ];
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -57,8 +57,14 @@ app.get('/', function (req, res) {
 });
 
 app.get('/campsites', function (req, res) {
-    res.render('campsites', {
-        campgrounds: campgrounds
+    Campground.find({}, function(err, allCampgrounds){
+        if(err){
+            console.log(err);
+        } else {
+            res.render('campsites', {
+                campgrounds: allCampgrounds
+            });
+        }
     });
 });
 
