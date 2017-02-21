@@ -1,7 +1,33 @@
-var path = require('path');
-var bodyParser = require('body-parser');
-var express = require('express');
-var app = express();
+var path        = require('path'),
+    bodyParser  = require('body-parser'),
+    mongoose    = require('mongoose'),
+    express     = require('express'),
+    app         = express();
+
+mongoose.connect('mongodb://localhost/yelpCamp');
+
+var campgroundSchema = new mongoose.Schema({
+    name: String,
+    image: String
+});
+
+var Campground = mongoose.model('Campground', campgroundSchema);
+
+Campground.create(
+    {
+        name: 'Zlatorog Bohinj',
+        image: 'http://www.photosforclass.com/download/14435096036'
+    }, function(err, campground){
+        if(err){
+            console.log(err);
+        } else {
+            console.log('New Campsite Added');
+            console.log(campground);
+        }
+    }
+);
+
+
 
 var campgrounds = [
     {name: 'Zlatorog Bohinj', image: 'http://www.photosforclass.com/download/14435096036'},
