@@ -13,11 +13,13 @@ var campgroundSchema = new mongoose.Schema({
 
 var Campground = mongoose.model('Campground', campgroundSchema);
 
-Campground.create(
-    {
-        name: 'Zlatorog Bohinj',
-        image: 'http://www.photosforclass.com/download/14435096036'
-    }, function(err, campground){
+var newCampground = {
+    name: 'Zlatorog Bled',
+    image: 'http://www.photosforclass.com/download/14435096036'
+};
+
+
+Campground.create(newCampground, function(err, campground){
         if(err){
             console.log(err);
         } else {
