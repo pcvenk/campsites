@@ -83,7 +83,17 @@ app.get('/campsites/new', function (req, res) {
 //SHOW - info about the particular site
 app.get('/campsites/:id', function(req, res){
 
-    Campground.findById(req.params.id, function(err, selectedSite){
+    // Campground.findById(req.params.id, function(err, selectedSite){
+    //     if(err){
+    //         console.log(err);
+    //     } else {
+    //         res.render('show', {
+    //             campground: selectedSite
+    //         });
+    //     }
+    // });
+
+    Campground.findOne({_id: req.params.id}, function(err, selectedSite){
         if(err){
             console.log(err);
         } else {
