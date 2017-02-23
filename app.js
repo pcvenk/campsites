@@ -60,10 +60,12 @@ app.post('/campsites', function (req, res) {
     //grabbing form data
     var name = req.body.name;
     var image = req.body.image;
+    var description = req.body.description;
 
     var newCampsite = {
         name: name,
-        image: image
+        image: image,
+        description: description
     };
     //creating a new site and saving it to DB
     Campground.create(newCampsite, function(err, newlyCreated){
