@@ -8,10 +8,25 @@ mongoose.connect('mongodb://localhost/yelpCamp');
 
 var campgroundSchema = new mongoose.Schema({
     name: String,
-    image: String
+    image: String,
+    description: String
 });
 
 var Campground = mongoose.model('Campground', campgroundSchema);
+
+// var newCampground = {
+//     name: 'Zlatorog Bohinj',
+//     image: 'http://www.photosforclass.com/download/15989950903',
+//     description: "A really nice place to spend a week or so. Very Relaxing!"
+// };
+//
+// Campground.create(newCampground, function(err, campground){
+//     if(err){
+//         console.log(err);
+//     } else {
+//         console.log(campground);
+//     }
+// });
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
