@@ -3,7 +3,8 @@ var path        = require('path'),
     mongoose    = require('mongoose'),
     express     = require('express'),
     app         = express(),
-    Campground  = require('./models/campground');
+    Campground  = require('./models/campground'),
+    seedsDB     = require('./seed.js');
 
 mongoose.connect('mongodb://localhost/yelpCamp');
 
@@ -20,6 +21,8 @@ mongoose.connect('mongodb://localhost/yelpCamp');
 //         console.log(campground);
 //     }
 // });
+
+seedsDB();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
