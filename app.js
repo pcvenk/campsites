@@ -2,17 +2,10 @@ var path        = require('path'),
     bodyParser  = require('body-parser'),
     mongoose    = require('mongoose'),
     express     = require('express'),
-    app         = express();
+    app         = express(),
+    Campground  = require('./models/campground');
 
 mongoose.connect('mongodb://localhost/yelpCamp');
-
-var campgroundSchema = new mongoose.Schema({
-    name: String,
-    image: String,
-    description: String
-});
-
-var Campground = mongoose.model('Campground', campgroundSchema);
 
 // var newCampground = {
 //     name: 'Zlatorog Bohinj',
