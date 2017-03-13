@@ -6,4 +6,17 @@
 
 <p><%= campground.description %></p>
 
+<!--<% campground.comments.forEach(function(comment){ %>-->
+    <!--<p>-->
+        <!--<strong><%= comment.author %></strong> - <div><% comment.text %></div>-->
+    <!--</p>-->
+<!--<% }) %>-->
+
+<% for(var i = 0; i < campground.comments.length; i++) { %>
+<p>
+    <strong><%= campground.comments[i].author %></strong> - <span><%= campground.comments[i].text
+    %></span>
+</p>
+<% } %>
+
 <% include layouts/footer %>

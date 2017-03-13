@@ -91,10 +91,11 @@ app.get('/campsites/:id', function(req, res){
     //     }
     // });
 
-    Campground.findOne({_id: req.params.id}, function(err, selectedSite){
+    Campground.findOne({_id: req.params.id}).populate('comments').exec(function(err, selectedSite){
         if(err){
             console.log(err);
         } else {
+            console.log(selectedSite);
             res.render('show', {
                 campground: selectedSite
             });
