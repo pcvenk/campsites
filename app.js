@@ -4,6 +4,7 @@ var path        = require('path'),
     express     = require('express'),
     app         = express(),
     Campground  = require('./models/campground'),
+    Comment     = require('./models/comment'),
     seedsDB     = require('./seed.js');
 
 mongoose.connect('mongodb://localhost/yelpCamp');
@@ -118,6 +119,33 @@ app.get('/campsites/:id/comments/new', function(req, res){
         }
     });
 
+});
+
+//Comments Create route
+app.post('/campsites/:id/comments', function(req, res){
+   //find the campground by its id
+   Campground.findById(req.params.id, function(err, campground){
+       if(err){
+           res.send(err);
+       } else {
+           //create the comment
+           var comment = {
+               author: req.body.author,
+               text: req.body.text
+           };
+           Comment.create(comment, function(err, comment){
+               if(err){
+                   res.send(err);
+               } else {
+                   //assosicate comment with campground
+                   campground.comments.push(comment);
+                   campground.save();
+                   //redirect
+                   res.redirect('/campsites/'+campground._id);
+               }
+           })
+       }
+   })
 });
 
 app.listen(3000, function () {
