@@ -107,7 +107,17 @@ app.get('/campsites/:id', function(req, res){
 //COMMENTS NEW Route
 //==============
 app.get('/campsites/:id/comments/new', function(req, res){
-   res.render('comments/new');
+    //grab the campsite by id
+    Campground.findById(req.params.id, function(err, campground){
+        if(err){
+            res.send(err);
+        } else {
+            res.render('comments/new', {
+                campground: campground
+            });
+        }
+    });
+
 });
 
 app.listen(3000, function () {
