@@ -44,7 +44,7 @@ app.get('/campsites', function (req, res) {
         if(err){
             console.log(err);
         } else {
-            res.render('index', {
+            res.render('campgrounds/index', {
                 campgrounds: allCampgrounds
             });
         }
@@ -75,7 +75,7 @@ app.post('/campsites', function (req, res) {
 
 //NEW - display a form for adding new camgrounds
 app.get('/campsites/new', function (req, res) {
-    res.render('new');
+    res.render('campgrounds/new');
 });
 
 //SHOW - info about the particular site
@@ -96,7 +96,7 @@ app.get('/campsites/:id', function(req, res){
             console.log(err);
         } else {
             console.log(selectedSite);
-            res.render('show', {
+            res.render('campgrounds/show', {
                 campground: selectedSite
             });
         }
@@ -106,8 +106,8 @@ app.get('/campsites/:id', function(req, res){
 //==============
 //COMMENTS NEW Route
 //==============
-app.get('/campsites/:id/comment/new', function(req, res){
-   res.render('new');
+app.get('/campsites/:id/comments/new', function(req, res){
+   res.render('comments/new');
 });
 
 app.listen(3000, function () {
