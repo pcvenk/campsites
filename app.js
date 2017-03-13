@@ -103,6 +103,13 @@ app.get('/campsites/:id', function(req, res){
     });
 });
 
+//==============
+//COMMENTS NEW Route
+//==============
+app.get('/campsites/:id/comment/new', function(req, res){
+   res.render('new');
+});
+
 app.listen(3000, function () {
     console.log('Server started on port 3000');
 });
