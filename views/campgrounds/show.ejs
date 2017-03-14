@@ -18,31 +18,30 @@
                     <h5 class="pull-right">$9.00/night</h5>
                 </div>
                 <h5><a href=""><%= campground.name %></a></h5>
+                <p><%= campground.description %></p>
             </div>
+
+            <div class="well">
+                <div class="text-right">
+                    <p>
+                        <a class="btn btn-success" href="/campsites/<%= campground._id %>/comments/new">Add
+                            Comment</a>
+                    </p>
+                </div>
+
+                <% for(var i = 0; i < campground.comments.length; i++) { %>
+                    <div class="row">
+                        <div class="col-md-11">
+                            <strong><%= campground.comments[i].author %></strong> -
+                            <span><%= campground.comments[i].text %></span>
+                            <p class="pull-right">10 days ago</p>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+
         </div>
     </div>
 </div>
-
-
-
-
-
-<p><%= campground.description %></p>
-
-<!--<% campground.comments.forEach(function(comment){ %>-->
-    <!--<p>-->
-        <!--<strong><%= comment.author %></strong> - <div><% comment.text %></div>-->
-    <!--</p>-->
-<!--<% }) %>-->
-
-<p><a class="btn btn-success" href="/campsites/<%= campground._id %>/comments/new">Add
-        Comment</a></p>
-
-<% for(var i = 0; i < campground.comments.length; i++) { %>
-<p>
-    <strong><%= campground.comments[i].author %></strong> - <span><%= campground.comments[i].text
-    %></span>
-</p>
-<% } %>
 
 <% include ../layouts/footer %>

@@ -6,22 +6,22 @@ var data = [
     {
         name: 'Camp Danica',
         image: 'http://www.photosforclass.com/download/3062178880',
-        description: "A nice little spot on the verge of TNP"
+        description: "Austin mlkshk salvia 3 wolf moon. Twee chia ugh, literally banjo roof party leggings. Hella listicle wolf vegan readymade, church-key VHS fap neutra gluten-free enamel pin next level williamsburg. Enamel pin pabst farm-to-table, migas truffaut gentrify tumblr post-ironic dreamcatcher butcher swag yuccie jean shorts hoodie hella. Food truck cray trust fund gentrify, copper mug pabst you probably haven't heard of them hammock art party. XOXO gastropub plaid, ethical occupy jianbing poutine tote bag meh letterpress tofu kombucha. Artisan +1 four loko cronut sriracha venmo."
     },
     {
         name: 'Camp Zlatorog',
         image: 'http://www.photosforclass.com/download/32317369293',
-        description: "The most heartbreaking experience you will ever experience"
+        description: "Austin mlkshk salvia 3 wolf moon. Twee chia ugh, literally banjo roof party leggings. Hella listicle wolf vegan readymade, church-key VHS fap neutra gluten-free enamel pin next level williamsburg. Enamel pin pabst farm-to-table, migas truffaut gentrify tumblr post-ironic dreamcatcher butcher swag yuccie jean shorts hoodie hella. Food truck cray trust fund gentrify, copper mug pabst you probably haven't heard of them hammock art party. XOXO gastropub plaid, ethical occupy jianbing poutine tote bag meh letterpress tofu kombucha. Artisan +1 four loko cronut sriracha venmo."
     },
     {
         name: 'Camp Bled',
         image: 'http://www.photosforclass.com/download/9586944536',
-        description: "A great spot to visit for young families and adventures alike"
+        description: "Austin mlkshk salvia 3 wolf moon. Twee chia ugh, literally banjo roof party leggings. Hella listicle wolf vegan readymade, church-key VHS fap neutra gluten-free enamel pin next level williamsburg. Enamel pin pabst farm-to-table, migas truffaut gentrify tumblr post-ironic dreamcatcher butcher swag yuccie jean shorts hoodie hella. Food truck cray trust fund gentrify, copper mug pabst you probably haven't heard of them hammock art party. XOXO gastropub plaid, ethical occupy jianbing poutine tote bag meh letterpress tofu kombucha. Artisan +1 four loko cronut sriracha venmo."
     },
     {
         name: 'Zelena Laguna',
         image: 'http://www.photosforclass.com/download/2617791137',
-        description: "Relaxing site big enough to accommodate hundreds of wild enthusiaists"
+        description: "Austin mlkshk salvia 3 wolf moon. Twee chia ugh, literally banjo roof party leggings. Hella listicle wolf vegan readymade, church-key VHS fap neutra gluten-free enamel pin next level williamsburg. Enamel pin pabst farm-to-table, migas truffaut gentrify tumblr post-ironic dreamcatcher butcher swag yuccie jean shorts hoodie hella. Food truck cray trust fund gentrify, copper mug pabst you probably haven't heard of them hammock art party. XOXO gastropub plaid, ethical occupy jianbing poutine tote bag meh letterpress tofu kombucha. Artisan +1 four loko cronut sriracha venmo."
     }
 ];
 
