@@ -24,10 +24,11 @@
             <div class="well">
                 <div class="text-right">
                     <p>
-                        <a class="btn btn-success" href="/campsites/<%= campground._id %>/comments/new">Add
-                            Comment</a>
+                        <a class="btn btn-success"
+                           href="/campsites/<%= campground._id %>/comments/new">AddComment</a>
                     </p>
                 </div>
+                <hr>
 
                 <% for(var i = 0; i < campground.comments.length; i++) { %>
                     <div class="row">

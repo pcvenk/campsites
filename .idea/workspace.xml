@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="69c06627-47ba-4bdf-a42c-97eacdc6edc3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seed.js" afterPath="$PROJECT_DIR$/seed.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/campgrounds/show.ejs" afterPath="$PROJECT_DIR$/views/campgrounds/show.ejs" />
     </list>
     <ignored path="camsites.iws" />
@@ -27,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="95" column="16" selection-start-line="95" selection-start-column="16" selection-end-line="95" selection-end-column="16" />
+            <state relative-caret-position="226">
+              <caret line="133" column="34" selection-start-line="133" selection-start-column="34" selection-end-line="133" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -47,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.ejs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="show.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/campgrounds/show.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+            <state relative-caret-position="337">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -62,6 +61,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
               <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seed.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/seed.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-89">
+              <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -401,12 +410,12 @@
       <workItem from="1487951204589" duration="763000" />
       <workItem from="1488271982240" duration="505000" />
       <workItem from="1489335273101" duration="9820000" />
-      <workItem from="1489479629079" duration="4704000" />
+      <workItem from="1489479629079" duration="5198000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32459000" />
+    <option name="totallyTimeSpent" value="32953000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="525" y="27" width="915" height="873" extended-state="0" />
@@ -826,30 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/comments/new.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="95" column="16" selection-start-line="95" selection-start-column="16" selection-end-line="95" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seed.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/campgrounds/new.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
@@ -860,8 +845,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/campgrounds/show.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+        <state relative-caret-position="337">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/seed.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-89">
+          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/comments/new.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="133" column="34" selection-start-line="133" selection-start-column="34" selection-end-line="133" selection-end-column="34" />
           <folding />
         </state>
       </provider>
