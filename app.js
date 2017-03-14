@@ -1,12 +1,15 @@
-var path        = require('path'),
-    bodyParser  = require('body-parser'),
-    mongoose    = require('mongoose'),
-    express     = require('express'),
-    app         = express(),
-    Campground  = require('./models/campground'),
-    Comment     = require('./models/comment'),
-    User        = require('./models/user'),
-    seedsDB     = require('./seed.js');
+var path            = require('path'),
+    bodyParser      = require('body-parser'),
+    mongoose        = require('mongoose'),
+    express         = require('express'),
+    app             = express(),
+    passport        = require('passport'),
+    LocalStrategy   = require('passport-local'),
+    session         = require('express-session'),
+    Campground      = require('./models/campground'),
+    Comment         = require('./models/comment'),
+    User            = require('./models/user'),
+    seedsDB         = require('./seed.js');
 
 mongoose.connect('mongodb://localhost/yelpCamp');
 
@@ -28,6 +31,20 @@ seedsDB();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+//passport config
+app.use(session({
+    secret: 'yelpCamp',
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 
 //setting up bodyParser
 app.use(bodyParser.urlencoded({extended: false}));
