@@ -5,6 +5,7 @@ var path        = require('path'),
     app         = express(),
     Campground  = require('./models/campground'),
     Comment     = require('./models/comment'),
+    User        = require('./models/user'),
     seedsDB     = require('./seed.js');
 
 mongoose.connect('mongodb://localhost/yelpCamp');
