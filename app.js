@@ -166,6 +166,19 @@ app.post('/campsites/:id/comments', function(req, res){
    })
 });
 
+
+//=============
+//USER REGISTRATION
+//=============
+
+app.get('/register', function(req, res){
+   res.render('register');
+});
+
+app.post('/register', function(req, res){
+   res.send('Signing in');
+});
+
 app.listen(3000, function () {
     console.log('Server started on port 3000');
 });
