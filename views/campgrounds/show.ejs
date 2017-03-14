@@ -12,6 +12,9 @@
     <!--</p>-->
 <!--<% }) %>-->
 
+<p><a class="btn btn-success" href="/campsites/<%= campground._id %>/comments/new">Add
+        Comment</a></p>
+
 <% for(var i = 0; i < campground.comments.length; i++) { %>
 <p>
     <strong><%= campground.comments[i].author %></strong> - <span><%= campground.comments[i].text
