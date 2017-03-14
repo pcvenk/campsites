@@ -10,12 +10,22 @@
                 <li class="list-group-item">Item 1</li>
             </div>
         </div>
+
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <img class="img-responsive" src="<%= campground.image %>">
+                <div class="caption-full">
+                    <h5 class="pull-right">$9.00/night</h5>
+                </div>
+                <h5><a href=""><%= campground.name %></a></h5>
+            </div>
+        </div>
     </div>
 </div>
 
-<h1><%= campground.name %></h1>
 
-<img src="<%= campground.image %>" width="800" height="650">
+
+
 
 <p><%= campground.description %></p>
 
