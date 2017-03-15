@@ -181,7 +181,8 @@ app.post('/register', function(req, res){
 
 //404 response
 app.use(function (req, res, next) {
-    res.status(404).send("Sorry can't find that!")
+    // res.status(404).send("Sorry can't find that!")
+    res.render('404');
 });
 
 app.listen(3000, function () {
