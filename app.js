@@ -192,6 +192,10 @@ app.get('/login', function(req, res){
    res.render('login');
 });
 
+app.post('/login', function(req, res){
+   res.send('Logging you in');
+});
+
 //404 response
 app.use(function (req, res, next) {
     // res.status(404).send("Sorry can't find that!")
