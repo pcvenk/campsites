@@ -192,8 +192,11 @@ app.get('/login', function(req, res){
    res.render('login');
 });
 
-app.post('/login', passport.authenticate('local'), function(req, res){
-   res.redirect('/campsites');
+app.post('/login', passport.authenticate('local', {
+    successRedirect: '/campsites',
+    failureRedirect: '/login'
+}), function(req, res){
+   // res.redirect('/campsites');
 });
 
 //404 response
