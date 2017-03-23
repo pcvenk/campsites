@@ -192,8 +192,8 @@ app.get('/login', function(req, res){
    res.render('login');
 });
 
-app.post('/login', function(req, res){
-   res.send('Logging you in');
+app.post('/login', passport.authenticate('local'), function(req, res){
+   res.redirect('/campsites');
 });
 
 //404 response
