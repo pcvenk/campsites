@@ -11,7 +11,8 @@ var path            = require('path'),
     User            = require('./models/user'),
     seedsDB         = require('./seed.js');
 
-var campgroundRoute = require('./routes/campgrounds');
+var campgroundRoute = require('./routes/campgrounds'),
+    authRoute       = require('./routes/auth');
 
 mongoose.connect('mongodb://localhost/yelpCamp');
 
@@ -63,15 +64,12 @@ app.use(function(req, res, next){
 
 //Routes
 app.use(campgroundRoute);
+app.use(authRoute);
 
 app.get('/', function (req, res) {
     res.render('home');
 });
 
-
-//==============
-//COMMENTS NEW Route
-//==============
 app.get('/campsites/:id/comments/new', isLoggedIn, function(req, res){
     //grab the campsite by id
     Campground.findById(req.params.id, function(err, campground){
@@ -111,44 +109,6 @@ app.post('/campsites/:id/comments', isLoggedIn, function(req, res){
            })
        }
    })
-});
-
-
-//=============
-//USER REGISTRATION
-//=============
-
-app.get('/register', function(req, res){
-   res.render('register');
-});
-
-app.post('/register', function(req, res){
-    var newUser = new User({username: req.body.username});
-    User.register(newUser, req.body.password, function(err, user){
-        if(err){
-            console.log(err);
-            return res.render('/register');
-        }
-        passport.authenticate('local')(req, res, function() {
-            res.redirect('/campsites');
-        });
-    });
-});
-
-app.get('/login', function(req, res){
-   res.render('login');
-});
-
-app.post('/login', passport.authenticate('local', {
-    successRedirect: '/campsites',
-    failureRedirect: '/login'
-}), function(req, res){
-   // res.redirect('/campsites');
-});
-
-app.get('/logout', function(req, res){
-    req.logout();
-    res.redirect('/');
 });
 
 //User login middleware
