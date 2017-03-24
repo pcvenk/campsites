@@ -32,22 +32,6 @@ seedsDB();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-//User login middleware
-function isLoggedIn(req, res, next){
-    //if(req.isAuthenticated())
-    if(req.user){
-        return next();
-    } else {
-        res.redirect('/login');
-    }
-
-}
-
-app.use(function(req, res, next){
-    res.locals.currentUser = req.user;
-    next();
-});
-
 //passport config
 app.use(session({
     secret: 'yelpCamp',
@@ -69,6 +53,12 @@ app.use(bodyParser.json());
 //setting up static assets
 app.use(express.static(__dirname +'/public'));
 
+//global var for identifying a user (so you dont have to pass in the user manually)
+app.use(function(req, res, next){
+    res.locals.currentUser = req.user;
+    next();
+});
+
 app.get('/', function (req, res) {
     res.render('home');
 });
@@ -80,8 +70,7 @@ app.get('/campsites', function (req, res) {
             console.log(err);
         } else {
             res.render('campgrounds/index', {
-                campgrounds: allCampgrounds,
-                currentUser: req.user
+                campgrounds: allCampgrounds
             });
         }
     });
@@ -111,7 +100,7 @@ app.post('/campsites', function (req, res) {
 
 //NEW - display a form for adding new camgrounds
 app.get('/campsites/new', function (req, res) {
-    res.render('campgrounds/new', {currentUser: req.user});
+    res.render('campgrounds/new');
 });
 
 //SHOW - info about the particular site
@@ -135,8 +124,7 @@ app.get('/campsites/:id', function(req, res){
             } else {
                 console.log(selectedSite);
                 res.render('campgrounds/show', {
-                    campground: selectedSite,
-                    currentUser: req.user
+                    campground: selectedSite
                 });
             }
     });
@@ -152,8 +140,7 @@ app.get('/campsites/:id/comments/new', isLoggedIn, function(req, res){
             res.send(err);
         } else {
             res.render('comments/new', {
-                campground: campground,
-                currentUser: req.user
+                campground: campground
             });
         }
     });
@@ -224,6 +211,17 @@ app.get('/logout', function(req, res){
     req.logout();
     res.redirect('/');
 });
+
+//User login middleware
+function isLoggedIn(req, res, next){
+    //if(req.isAuthenticated())
+    if(req.isAuthenticated()){
+        return next();
+    } else {
+        res.redirect('/login');
+    }
+
+}
 
 //404 response
 app.use(function (req, res, next) {
