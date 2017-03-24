@@ -32,6 +32,22 @@ seedsDB();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+//User login middleware
+function isLoggedIn(req, res, next){
+    //if(req.isAuthenticated())
+    if(req.user){
+        return next();
+    } else {
+        res.redirect('/login');
+    }
+
+}
+
+app.use(function(req, res, next){
+    res.locals.currentUser = req.user;
+    next();
+});
+
 //passport config
 app.use(session({
     secret: 'yelpCamp',
@@ -64,7 +80,8 @@ app.get('/campsites', function (req, res) {
             console.log(err);
         } else {
             res.render('campgrounds/index', {
-                campgrounds: allCampgrounds
+                campgrounds: allCampgrounds,
+                currentUser: req.user
             });
         }
     });
@@ -94,7 +111,7 @@ app.post('/campsites', function (req, res) {
 
 //NEW - display a form for adding new camgrounds
 app.get('/campsites/new', function (req, res) {
-    res.render('campgrounds/new');
+    res.render('campgrounds/new', {currentUser: req.user});
 });
 
 //SHOW - info about the particular site
@@ -118,7 +135,8 @@ app.get('/campsites/:id', function(req, res){
             } else {
                 console.log(selectedSite);
                 res.render('campgrounds/show', {
-                    campground: selectedSite
+                    campground: selectedSite,
+                    currentUser: req.user
                 });
             }
     });
@@ -134,7 +152,8 @@ app.get('/campsites/:id/comments/new', isLoggedIn, function(req, res){
             res.send(err);
         } else {
             res.render('comments/new', {
-                campground: campground
+                campground: campground,
+                currentUser: req.user
             });
         }
     });
@@ -205,17 +224,6 @@ app.get('/logout', function(req, res){
     req.logout();
     res.redirect('/');
 });
-
-//User login middleware
-function isLoggedIn(req, res, next){
-    //if(req.isAuthenticated())
-    if(req.user){
-        return next();
-    } else {
-        res.redirect('/login');
-    }
-
-}
 
 //404 response
 app.use(function (req, res, next) {
