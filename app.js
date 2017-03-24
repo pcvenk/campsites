@@ -199,6 +199,11 @@ app.post('/login', passport.authenticate('local', {
    // res.redirect('/campsites');
 });
 
+app.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+});
+
 //404 response
 app.use(function (req, res, next) {
     // res.status(404).send("Sorry can't find that!")
