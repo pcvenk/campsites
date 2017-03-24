@@ -110,22 +110,24 @@ app.get('/campsites/:id', function(req, res){
     //     }
     // });
 
-    Campground.findOne({_id: req.params.id}).populate('comments').exec(function(err, selectedSite){
-        if(err){
-            console.log(err);
-        } else {
-            console.log(selectedSite);
-            res.render('campgrounds/show', {
-                campground: selectedSite
-            });
-        }
+    Campground.findOne({_id: req.params.id})
+        .populate('comments')
+        .exec(function(err, selectedSite){
+            if(err){
+                console.log(err);
+            } else {
+                console.log(selectedSite);
+                res.render('campgrounds/show', {
+                    campground: selectedSite
+                });
+            }
     });
 });
 
 //==============
 //COMMENTS NEW Route
 //==============
-app.get('/campsites/:id/comments/new', function(req, res){
+app.get('/campsites/:id/comments/new', isLoggedIn, function(req, res){
     //grab the campsite by id
     Campground.findById(req.params.id, function(err, campground){
         if(err){
@@ -140,7 +142,7 @@ app.get('/campsites/:id/comments/new', function(req, res){
 });
 
 //Comments Create route
-app.post('/campsites/:id/comments', function(req, res){
+app.post('/campsites/:id/comments', isLoggedIn, function(req, res){
    //find the campground by its id
    Campground.findById(req.params.id, function(err, campground){
        if(err){
@@ -203,6 +205,17 @@ app.get('/logout', function(req, res){
     req.logout();
     res.redirect('/');
 });
+
+//User login middleware
+function isLoggedIn(req, res, next){
+    //if(req.isAuthenticated())
+    if(req.user){
+        return next();
+    } else {
+        res.redirect('/login');
+    }
+
+}
 
 //404 response
 app.use(function (req, res, next) {
