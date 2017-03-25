@@ -49,9 +49,9 @@ app.use(function(req, res, next){
 });
 
 //Routes
-app.use(campgroundRoutes);
+app.use('/campsites', campgroundRoutes);
 app.use(authRoutes);
-app.use(commentRoutes);
+app.use('/campsites/:id/comments', commentRoutes);
 app.use(indexRoutes);
 
 app.listen(3000, function () {

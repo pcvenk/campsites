@@ -3,7 +3,7 @@ var router  = express.Router();
 var Campground = require('../models/campground');
 
 //INDEX - show all campsites
-router.get('/campsites', function (req, res) {
+router.get('/', function (req, res) {
     Campground.find({}, function(err, allCampgrounds){
         if(err){
             console.log(err);
@@ -16,7 +16,7 @@ router.get('/campsites', function (req, res) {
 });
 
 //CREATE - create a new campground
-router.post('/campsites', function (req, res) {
+router.post('/', function (req, res) {
     //grabbing form data
     var name = req.body.name;
     var image = req.body.image;
@@ -38,12 +38,12 @@ router.post('/campsites', function (req, res) {
 });
 
 //NEW - display a form for adding new camgrounds
-router.get('/campsites/new', function (req, res) {
+router.get('/new', function (req, res) {
     res.render('campgrounds/new');
 });
 
 //SHOW - info about the particular site
-router.get('/campsites/:id', function(req, res){
+router.get('/:id', function(req, res){
 
     // Campground.findById(req.params.id, function(err, selectedSite){
     //     if(err){

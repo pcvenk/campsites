@@ -1,9 +1,10 @@
 var express = require('express');
-var router = express.Router();
+//passing IDs in the URL
+var router = express.Router({mergeParams: true});
 var Campground = require('../models/campground');
 var Comment = require('../models/comment');
 
-router.get('/campsites/:id/comments/new', isLoggedIn, function(req, res){
+router.get('/new', isLoggedIn, function(req, res){
     //grab the campsite by id
     Campground.findById(req.params.id, function(err, campground){
         if(err){
@@ -18,7 +19,7 @@ router.get('/campsites/:id/comments/new', isLoggedIn, function(req, res){
 });
 
 //Comments Create route
-router.post('/campsites/:id/comments', isLoggedIn, function(req, res){
+router.post('/', isLoggedIn, function(req, res){
     //find the campground by its id
     Campground.findById(req.params.id, function(err, campground){
         if(err){
