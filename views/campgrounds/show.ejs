@@ -34,7 +34,7 @@
                 <% for(var i = 0; i < campground.comments.length; i++) { %>
                     <div class="row">
                         <div class="col-md-11">
-                            <strong><%= campground.comments[i].author %></strong> -
+                            <strong><%= campground.comments[i].author.username %></strong> -
                             <span><%= campground.comments[i].text %></span>
                             <p class="pull-right">10 days ago</p>
                         </div>
