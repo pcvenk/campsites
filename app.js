@@ -9,9 +9,10 @@ var path            = require('path'),
     User            = require('./models/user'),
     seedsDB         = require('./seed.js');
 
-var campgroundRoute = require('./routes/campgrounds'),
-    authRoute       = require('./routes/auth'),
-    commentRoute    = require('./routes/comment');
+var campgroundRoutes = require('./routes/campgrounds'),
+    authRoutes       = require('./routes/auth'),
+    commentRoutes    = require('./routes/comment'),
+    indexRoutes      = require('./routes/index');
 
 mongoose.connect('mongodb://localhost/yelpCamp');
 
@@ -48,20 +49,10 @@ app.use(function(req, res, next){
 });
 
 //Routes
-app.use(campgroundRoute);
-app.use(authRoute);
-app.use(commentRoute);
-
-app.get('/', function (req, res) {
-    res.render('home');
-});
-
-
-//404 response
-app.use(function (req, res, next) {
-    // res.status(404).send("Sorry can't find that!")
-    res.render('404');
-});
+app.use(campgroundRoutes);
+app.use(authRoutes);
+app.use(commentRoutes);
+app.use(indexRoutes);
 
 app.listen(3000, function () {
     console.log('Server started on port 3000');
