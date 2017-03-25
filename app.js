@@ -6,29 +6,14 @@ var path            = require('path'),
     passport        = require('passport'),
     LocalStrategy   = require('passport-local'),
     session         = require('express-session'),
-    Campground      = require('./models/campground'),
-    Comment         = require('./models/comment'),
     User            = require('./models/user'),
     seedsDB         = require('./seed.js');
 
 var campgroundRoute = require('./routes/campgrounds'),
-    authRoute       = require('./routes/auth');
+    authRoute       = require('./routes/auth'),
+    commentRoute    = require('./routes/comment');
 
 mongoose.connect('mongodb://localhost/yelpCamp');
-
-// var newCampground = {
-//     name: 'Zlatorog Bohinj',
-//     image: 'http://www.photosforclass.com/download/15989950903',
-//     description: "A really nice place to spend a week or so. Very Relaxing!"
-// };
-//
-// Campground.create(newCampground, function(err, campground){
-//     if(err){
-//         console.log(err);
-//     } else {
-//         console.log(campground);
-//     }
-// });
 
 seedsDB();
 
@@ -65,62 +50,12 @@ app.use(function(req, res, next){
 //Routes
 app.use(campgroundRoute);
 app.use(authRoute);
+app.use(commentRoute);
 
 app.get('/', function (req, res) {
     res.render('home');
 });
 
-app.get('/campsites/:id/comments/new', isLoggedIn, function(req, res){
-    //grab the campsite by id
-    Campground.findById(req.params.id, function(err, campground){
-        if(err){
-            res.send(err);
-        } else {
-            res.render('comments/new', {
-                campground: campground
-            });
-        }
-    });
-
-});
-
-//Comments Create route
-app.post('/campsites/:id/comments', isLoggedIn, function(req, res){
-   //find the campground by its id
-   Campground.findById(req.params.id, function(err, campground){
-       if(err){
-           res.send(err);
-       } else {
-           //create the comment
-           var comment = {
-               author: req.body.author,
-               text: req.body.text
-           };
-           Comment.create(comment, function(err, comment){
-               if(err){
-                   res.send(err);
-               } else {
-                   //assosicate comment with campground
-                   campground.comments.push(comment);
-                   campground.save();
-                   //redirect
-                   res.redirect('/campsites/'+campground._id);
-               }
-           })
-       }
-   })
-});
-
-//User login middleware
-function isLoggedIn(req, res, next){
-    //if(req.isAuthenticated())
-    if(req.isAuthenticated()){
-        return next();
-    } else {
-        res.redirect('/login');
-    }
-
-}
 
 //404 response
 app.use(function (req, res, next) {
