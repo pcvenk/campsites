@@ -16,7 +16,7 @@ router.get('/', function (req, res) {
 });
 
 //CREATE - create a new campground
-router.post('/', function (req, res) {
+router.post('/', isLoggedIn, function (req, res) {
     //grabbing form data
     var name = req.body.name;
     var image = req.body.image;
@@ -38,7 +38,7 @@ router.post('/', function (req, res) {
 });
 
 //NEW - display a form for adding new camgrounds
-router.get('/new', function (req, res) {
+router.get('/new', isLoggedIn, function (req, res) {
     res.render('campgrounds/new');
 });
 
@@ -68,5 +68,16 @@ router.get('/:id', function(req, res){
             }
         });
 });
+
+//User login middleware
+function isLoggedIn(req, res, next){
+    //if(req.user())
+    if(req.isAuthenticated()){
+        return next();
+    } else {
+        res.redirect('/login');
+    }
+
+}
 
 module.exports = router;
