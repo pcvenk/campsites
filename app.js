@@ -16,7 +16,7 @@ var campgroundRoutes = require('./routes/campgrounds'),
     indexRoutes      = require('./routes/index');
 
 connectDB();
-seedsDB();
+// seedsDB();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
