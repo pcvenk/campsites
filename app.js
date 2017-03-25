@@ -7,15 +7,15 @@ var path            = require('path'),
     LocalStrategy   = require('passport-local'),
     session         = require('express-session'),
     User            = require('./models/user'),
-    seedsDB         = require('./seed.js');
+    seedsDB         = require('./seed.js'),
+    connectDB       = require('./database/db');
 
 var campgroundRoutes = require('./routes/campgrounds'),
     authRoutes       = require('./routes/auth'),
     commentRoutes    = require('./routes/comment'),
     indexRoutes      = require('./routes/index');
 
-mongoose.connect('mongodb://localhost/yelpCamp');
-
+connectDB();
 seedsDB();
 
 app.set('views', path.join(__dirname, 'views'));
