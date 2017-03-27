@@ -19,8 +19,10 @@
                     <h5><a href=""><%= campground.name %></a></h5>
                     <p><%= campground.description %></p>
                     <p><small>Submitted by: <%= campground.author.username %></small></p>
+                    <div class="text-right">
+                        <a class="btn btn-warning" href="/campsites/<%= campground._id%>/edit">Edit Campsite</a>
+                    </div>
                 </div>
-
             </div>
 
             <div class="well">
