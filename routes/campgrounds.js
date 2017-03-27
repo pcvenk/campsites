@@ -103,6 +103,18 @@ router.put('/:id/update', function(req, res){
     });
 });
 
+//DESTROY - delete a campgraound
+router.delete('/:id', function(req, res){
+    Campground.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            console.log(err);
+            res.redirect('/campsites');
+        } else {
+            res.redirect('/campsites');
+        }
+    });
+});
+
 //User login middleware
 function isLoggedIn(req, res, next){
     //if(req.user())
