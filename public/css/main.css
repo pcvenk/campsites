@@ -5,3 +5,7 @@
 .caption-full {
     padding: 15px;
 }
+
+#remove-button {
+    display: inline-block;
+}
