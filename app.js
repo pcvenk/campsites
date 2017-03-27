@@ -8,6 +8,7 @@ var path            = require('path'),
     session         = require('express-session'),
     User            = require('./models/user'),
     seedsDB         = require('./seed.js'),
+    methodOverride  = require('method-override'),
     connectDB       = require('./database/db');
 
 var campgroundRoutes = require('./routes/campgrounds'),
@@ -20,6 +21,8 @@ connectDB();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.use(methodOverride('_method'));
 
 //passport config
 app.use(session({

@@ -81,7 +81,7 @@ router.get('/:id/edit', function(req, res){
             console.log(err);
             res.redirect('/campsites');
         } else {
-            res.render('edit', {foundCampground: foundCampground});
+            res.render('campgrounds/edit', {foundCampground: foundCampground});
         }
     });
 });
