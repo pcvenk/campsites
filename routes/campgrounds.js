@@ -74,6 +74,18 @@ router.get('/:id', function(req, res){
         });
 });
 
+//EDIT - display the edit campground form
+router.get('/:id/edit', function(req, res){
+    Campground.findById(req.params.id, function(err, foundCampground){
+        if(err){
+            console.log(err);
+            res.redirect('/campsites');
+        } else {
+            res.render('edit', {foundCampground: foundCampground});
+        }
+    });
+});
+
 //User login middleware
 function isLoggedIn(req, res, next){
     //if(req.user())
