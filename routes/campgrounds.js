@@ -66,7 +66,7 @@ router.get('/:id', function(req, res){
             if(err){
                 console.log(err);
             } else {
-                console.log(selectedSite);
+                // console.log(selectedSite);
                 res.render('campgrounds/show', {
                     campground: selectedSite
                 });
@@ -82,6 +82,23 @@ router.get('/:id/edit', function(req, res){
             res.redirect('/campsites');
         } else {
             res.render('campgrounds/edit', {foundCampground: foundCampground});
+        }
+        // console.log(foundCampground);
+    });
+});
+
+//UPDATE - post route
+router.put('/:id/update', function(req, res){
+    var updatedCampground = {
+        name: req.body.name,
+        image: req.body.image,
+        description: req.body.description
+    };
+    Campground.findByIdAndUpdate(req.params.id, updatedCampground, function(err, campground){
+        if(err){
+            console.log(err);
+        } else {
+            res.redirect('/campsites/'+campground._id)
         }
     });
 });
