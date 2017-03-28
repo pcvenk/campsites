@@ -75,15 +75,14 @@ router.get('/:id', function(req, res){
 });
 
 //EDIT - display the edit campground form
-router.get('/:id/edit', function(req, res){
+router.get('/:id/edit', campgroundOwnershipCheck,function(req, res){
     Campground.findById(req.params.id, function(err, foundCampground){
         if(err){
             console.log(err);
-            res.redirect('/campsites');
+            res.redirect('back');
         } else {
             res.render('campgrounds/edit', {foundCampground: foundCampground});
         }
-        // console.log(foundCampground);
     });
 });
 
