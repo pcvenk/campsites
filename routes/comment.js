@@ -52,6 +52,7 @@ router.post('/', isLoggedIn, function(req, res){
 
 //EDIT comments route
 router.get('/:comment_id/edit', function(req, res){
+    //id of the campground from the URL
     var campground_id = req.params.id;
     Comment.findById(req.params.comment_id, function(err, foundComment){
        if(err){
@@ -64,6 +65,11 @@ router.get('/:comment_id/edit', function(req, res){
            // res.send("Edit comment route");
        }
     });
+});
+
+//UPDATE comments route
+router.put('/:comment_id', function(req, res){
+   res.send('You hit the comment update route');
 });
 
 //User login middleware
