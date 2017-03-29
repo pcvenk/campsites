@@ -19,6 +19,8 @@
                     <h5><a href=""><%= campground.name %></a></h5>
                     <p><%= campground.description %></p>
                     <p><small>Submitted by: <%= campground.author.username %></small></p>
+
+                    <% if(currentUser && campground.author.id.toString() == currentUser._id) { %>
                     <div class="text-right">
                         <a class="btn btn-warning" href="/campsites/<%= campground._id%>/edit">Edit Campsite</a>
                         <form id="remove-button" action="/campsites/<%= campground._id
@@ -27,6 +29,7 @@
                             <button class="btn btn-danger">Remove</button>
                         </form>
                     </div>
+                    <% } %>
                 </div>
             </div>
 
