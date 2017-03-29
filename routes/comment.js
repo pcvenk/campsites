@@ -52,7 +52,18 @@ router.post('/', isLoggedIn, function(req, res){
 
 //EDIT comments route
 router.get('/:comment_id/edit', function(req, res){
-   res.render('comments/edit');
+    var campground_id = req.params.id;
+    Comment.findById(req.params.comment_id, function(err, foundComment){
+       if(err){
+           console.log(err);
+       } else {
+           res.render('comments/edit', {
+               comment: foundComment,
+               campground_id: campground_id
+           });
+           // res.send("Edit comment route");
+       }
+    });
 });
 
 //User login middleware

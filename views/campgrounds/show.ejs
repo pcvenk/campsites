@@ -48,6 +48,9 @@
                             <strong><%= campground.comments[i].author.username %></strong> -
                             <span><%= campground.comments[i].text %></span>
                             <p class="pull-right">10 days ago</p>
+                            <a href="/campsites/<%= campground._id %>/comments/<%=
+                                campground.comments[i]._id
+                            %>/edit" class="btn btn-danger btn-sm">Edit</a>
                         </div>
                     </div>
                 <% } %>
