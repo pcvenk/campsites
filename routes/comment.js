@@ -50,6 +50,11 @@ router.post('/', isLoggedIn, function(req, res){
     })
 });
 
+//EDIT comments route
+router.get('/:comment_id/edit', function(req, res){
+   res.render('comments/edit');
+});
+
 //User login middleware
 function isLoggedIn(req, res, next){
     //if(req.user())
