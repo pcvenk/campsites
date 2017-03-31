@@ -50,7 +50,12 @@
                             <p class="pull-right">10 days ago</p>
                             <a href="/campsites/<%= campground._id %>/comments/<%=
                                 campground.comments[i]._id
-                            %>/edit" class="btn btn-danger btn-sm">Edit</a>
+                            %>/edit" class="btn btn-warning btn-xs">Edit</a>
+                            <form method="POST"
+                                  action="/campsites/<%= campground._id %>/comments/<%=
+                                      campground.comments[i]._id %>?_method=DELETE">
+                                <button class="btn btn-danger btn-xs">Delete</button>
+                            </form>
                         </div>
                     </div>
                 <% } %>
