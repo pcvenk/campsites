@@ -9,3 +9,7 @@
 #remove-button {
     display: inline-block;
 }
+
+.form-delete {
+    display: inline;
+}
