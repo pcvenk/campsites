@@ -28,3 +28,14 @@
             </div>
         </div>
     </nav>
+
+    <% { %>
+    <div class="container">
+        <div class="alert alert-info" role="alert">
+            <p><%= success %></p>
+        </div>
+        <div class="alert alert-danger" role="alert">
+            <p><%= error %></p>
+        </div>
+    </div>
+    <% } %>

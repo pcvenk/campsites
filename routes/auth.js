@@ -22,7 +22,8 @@ router.post('/register', function(req, res){
 });
 
 router.get('/login', function(req, res){
-    res.render('login', {message: req.flash('error')});
+    req.flash('error', 'You need to login first');
+    res.render('login');
 });
 
 router.post('/login', passport.authenticate('local', {
@@ -34,7 +35,8 @@ router.post('/login', passport.authenticate('local', {
 
 router.get('/logout', function(req, res){
     req.logout();
-    res.redirect('/');
+    req.flash('success', 'You have successfully logged out');
+    res.redirect('/campsites');
 });
 
 module.exports = router;

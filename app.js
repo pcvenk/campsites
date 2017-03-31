@@ -52,6 +52,8 @@ app.use(flash());
 //global var for identifying a user (so you dont have to pass in the user manually)
 app.use(function(req, res, next){
     res.locals.currentUser = req.user;
+    res.locals.error = req.flash('error');
+    res.locals.success = req.flash('success');
     next();
 });
 
