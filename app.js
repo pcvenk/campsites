@@ -6,6 +6,7 @@ var path            = require('path'),
     passport        = require('passport'),
     LocalStrategy   = require('passport-local'),
     session         = require('express-session'),
+    flash           = require('connect-flash'),
     User            = require('./models/user'),
     seedsDB         = require('./seed.js'),
     methodOverride  = require('method-override'),
@@ -44,6 +45,9 @@ app.use(bodyParser.json());
 
 //setting up static assets
 app.use(express.static(__dirname +'/public'));
+
+//connect-flash
+app.use(flash());
 
 //global var for identifying a user (so you dont have to pass in the user manually)
 app.use(function(req, res, next){
