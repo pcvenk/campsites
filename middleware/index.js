@@ -29,6 +29,7 @@ middlewareObj.commentOwnershipCheck = function(req, res, next){
     if(req.isAuthenticated()){
         Comment.findById(req.params.comment_id, function(err, foundComment){
             if(err){
+                req.flash('error', 'Campground not found!');
                 res.redirect('back');
             } else {
                 //does the user own the comment
@@ -36,11 +37,13 @@ middlewareObj.commentOwnershipCheck = function(req, res, next){
                     // if(foundComment.author.id.equals(req.user._id)){
                     next();
                 } else {
+                    req.flash('error', 'You are not authorised to add comments!');
                     res.redirect('back');
                 }
             }
         });
     } else {
+        req.flash('error', 'You need to login first!');
         res.redirect('back');
     }
 };

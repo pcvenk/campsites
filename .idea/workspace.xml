@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69c06627-47ba-4bdf-a42c-97eacdc6edc3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/bootstrap.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layouts/footer.ejs" afterPath="$PROJECT_DIR$/views/layouts/footer.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layouts/header.ejs" afterPath="$PROJECT_DIR$/views/layouts/header.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/middleware/index.js" afterPath="$PROJECT_DIR$/middleware/index.js" />
     </list>
     <ignored path="camsites.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -88,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/middleware/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="52" column="58" selection-start-line="52" selection-start-column="58" selection-end-line="52" selection-end-column="58" />
+            <state relative-caret-position="390">
+              <caret line="39" column="82" selection-start-line="39" selection-start-column="82" selection-end-line="39" selection-end-column="82" />
               <folding />
             </state>
           </provider>
@@ -111,7 +109,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="footer.ejs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="footer.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/layouts/footer.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
@@ -173,13 +171,13 @@
         <option value="$PROJECT_DIR$/views/campgrounds/show.ejs" />
         <option value="$PROJECT_DIR$/routes/campgrounds.js" />
         <option value="$PROJECT_DIR$/routes/comment.js" />
-        <option value="$PROJECT_DIR$/middleware/index.js" />
         <option value="$PROJECT_DIR$/views/login.ejs" />
         <option value="$PROJECT_DIR$/routes/auth.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/views/layouts/header.ejs" />
         <option value="$PROJECT_DIR$/views/layouts/footer.ejs" />
+        <option value="$PROJECT_DIR$/middleware/index.js" />
       </list>
     </option>
   </component>
@@ -505,12 +503,12 @@
       <workItem from="1490288836385" duration="10974000" />
       <workItem from="1490633523852" duration="13022000" />
       <workItem from="1490970383283" duration="63000" />
-      <workItem from="1490970503130" duration="8833000" />
+      <workItem from="1490970503130" duration="9691000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70969000" />
+    <option name="totallyTimeSpent" value="71827000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -891,14 +889,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/middleware/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="52" column="58" selection-start-line="52" selection-start-column="58" selection-end-line="52" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/login.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -946,6 +936,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/middleware/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="39" column="82" selection-start-line="39" selection-start-column="82" selection-end-line="39" selection-end-column="82" />
           <folding />
         </state>
       </provider>
