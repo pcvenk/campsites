@@ -15,11 +15,13 @@ middlewareObj.campgroundOwnershipCheck = function(req, res, next){
                     // if(foundCampground.author.id.equals(req.user._id)){
                     next();
                 } else {
+                    req.flash('error', 'You are not authorised to do that!');
                     res.redirect('back');
                 }
             }
         });
     } else {
+        req.flash('error', 'You need to login first!');
         res.redirect('back');
     }
 };
