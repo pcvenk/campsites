@@ -1,5 +1,6 @@
 body {
     background-color: black;
+    font-family: 'Roboto', sans-serif;
 }
 
 #landing-header {
@@ -11,6 +12,9 @@ body {
 
 #landing-header h1 {
     color: white;
+    font-size: 68px;
+    font-weight: 300;
+    letter-spacing: 3px;
 }
 
 .slideshow {
