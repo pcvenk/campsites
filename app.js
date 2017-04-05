@@ -25,6 +25,9 @@ app.set('view engine', 'ejs');
 
 app.use(methodOverride('_method'));
 
+//moment available on all routes
+app.locals.moment = require('moment');
+
 //passport config
 app.use(session({
     secret: 'yelpCamp',
