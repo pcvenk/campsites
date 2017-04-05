@@ -19,7 +19,7 @@
                     <h5><a href=""><%= campground.name %></a></h5>
                     <p><%= campground.description %></p>
                     <p>
-                        <small>Submitted by: <%= campground.author.username %></small>
+                        <small>Submitted by: <%= campground.author.username %>, <%= moment(campground.createdAt).fromNow()%></small>
                     </p>
 
                     <% if(currentUser && campground.author.id.toString() == currentUser._id) { %>
@@ -49,7 +49,7 @@
                     <div class="col-md-11">
                         <strong><%= campground.comments[i].author.username %></strong> -
                         <span><%= campground.comments[i].text %></span>
-                        <p class="pull-right">10 days ago</p>
+                        <p class="pull-right"><%= moment(campground.comments[i].createdAt).fromNow() %></p>
                         <div>
                             <% if(currentUser && campground.comments[i].author.id.toString() == currentUser._id) { %>
                                 <a href="/campsites/<%= campground._id %>/comments/<%=
