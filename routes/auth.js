@@ -13,8 +13,8 @@ router.post('/register', function(req, res){
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             //todo fix the error flashing on err
-            req.flash('error', err.message);
-            return res.render('register');
+            // req.flash('error', err.message);
+            return res.render('register', {error: err.message});
         }
         passport.authenticate('local')(req, res, function() {
             req.flash('success', 'Welcome, '+user.username);
