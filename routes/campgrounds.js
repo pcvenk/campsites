@@ -21,6 +21,7 @@ router.post('/', middleware.isLoggedIn, function (req, res) {
     //grabbing form data
     var name = req.body.name;
     var image = req.body.image;
+    var price = req.body.price;
     var description = req.body.description;
     var author = {
         id: req.user._id,
@@ -30,6 +31,7 @@ router.post('/', middleware.isLoggedIn, function (req, res) {
     var newCampsite = {
         name: name,
         image: image,
+        price: price,
         description: description,
         author: author
     };
@@ -95,6 +97,7 @@ router.put('/:id/update', middleware.campgroundOwnershipCheck, function(req, res
     var updatedCampground = {
         name: req.body.name,
         image: req.body.image,
+        price: req.body.price,
         description: req.body.description
     };
     Campground.findByIdAndUpdate(req.params.id, updatedCampground, function(err, campground){
