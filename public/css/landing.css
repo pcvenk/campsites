@@ -36,7 +36,7 @@ body {
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    animation: imageAnimation 50s linear infinite;
+    animation: imageAnimation 35s linear infinite;
 
 }
 
@@ -45,19 +45,19 @@ body {
 }
 .slideshow li:nth-child(2) {
     background-image: url(http://i.imgur.com/SBEmFpv.jpg);
-    animation-delay: 10s;
+    animation-delay: 7s;
 }
 .slideshow li:nth-child(3) {
     background-image: url(http://i.imgur.com/emvhOnb.jpg);
-    animation-delay: 20s;
+    animation-delay: 14s;
 }
 .slideshow li:nth-child(4) {
     background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
-    animation-delay: 30s;
+    animation-delay: 21s;
 }
 .slideshow li:nth-child(5) {
     background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
-    animation-delay: 40s;
+    animation-delay: 28s;
 }
 
 @keyframes imageAnimation {
