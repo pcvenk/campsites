@@ -1,13 +1,37 @@
-<% include ./layouts/header %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YelpCamp</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/landing.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+</head>
+<body>
 
-<h1>Yelp Campsites</h1>
-
-<h5>Welcome to a camplistings site</h5>
-
-<a href="/campsites">See all camping grounds</a>
-<div>
-    <a href="/campsites/new">Add New Campsite</a>
+<div class="container">
+    <% if(error && error.length > 0){ %>
+    <div class="alert alert-danger" role="alert">
+        <%= error %>
+    </div>
+    <% } %>
+    <% if(success && success.length > 0){ %>
+    <div class="alert alert-success" role="alert">
+        <%= success %>
+    </div>
+    <% } %>
 </div>
 
+<div id="landing-header">
+    <h1>Welcome to YelpCamp!</h1>
+    <a href="/campsites" class="btn btn-lg btn-success">View All Campgrounds</a>
+</div>
 
-<% include ./layouts/footer %>
+<ul class="slideshow">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+<% include layouts/footer %>
