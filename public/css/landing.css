@@ -91,3 +91,7 @@ body {
     border-color: lightgray;
     color: lightgray;
 }
+
+.btn-success:active {
+    background-color: transparent !important;
+}
